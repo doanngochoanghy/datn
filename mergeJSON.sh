@@ -1,2 +1,2 @@
-cat data/dantri1.json data/dantri2.json >> data/dantri.json
+cat ./data/dantri_* > data/dantri.json
 
