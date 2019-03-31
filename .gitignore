@@ -1,3 +1,4 @@
-data/dantri.json
-a.csv
+data/*.json
+*.csv
 .*
+*.out
