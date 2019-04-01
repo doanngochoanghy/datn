@@ -2,3 +2,5 @@ data/*.json
 *.csv
 .*
 *.out
+!vnexpress.csv
+
