@@ -1,4 +1,1 @@
-cat ./data/dantri_* > data/dantri.json
-cat ./data/vnexpress_* > data/vnexpress.json
-cat ./data/vietnamnet_* > data/vietnamnet.json
-
+cat ./data/$1_* > data/$1.json
