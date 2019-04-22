@@ -2,6 +2,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.linear_model import SGDClassifier
+from sklearn.naive_bayes import MultinomialNB
 
 
 class SVMModel(object):
@@ -15,14 +16,7 @@ class SVMModel(object):
         f.close()
         pipe_line = Pipeline([("vect",
                                CountVectorizer(
-                                   min_df=5,
-                                   max_df=0.7,
-                                   stop_words=sw)),
+                                   min_df=5, max_df=0.7, stop_words=sw)),
                               ("tfidf", TfidfTransformer()),
-                              ("clf-svm",
-                               SGDClassifier(
-                                   loss='log',
-                                   penalty='l2',
-                                   alpha=1e-3,
-                                   random_state=None))])
+                              ("clf", MultinomialNB())])
         return pipe_line
