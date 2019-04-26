@@ -1,16 +1,15 @@
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.linear_model import SGDClassifier
-from sklearn import svm
+from sklearn.naive_bayes import MultinomialNB
 
 
-class SVMModel(object):
-    def __init__(self,kernel):
-        self.clf = self._init_pipeline(kernel)
+class NBModel(object):
+    def __init__(self):
+        self.clf = self._init_pipeline()
 
     @staticmethod
-    def _init_pipeline(kernel):
+    def _init_pipeline():
         f = open('vietnamese-stopwords-dash.txt', 'r')
         sw = f.read().splitlines()
         f.close()
@@ -18,10 +17,5 @@ class SVMModel(object):
                                CountVectorizer(
                                    min_df=5, max_df=0.7, stop_words=sw)),
                               ("tfidf", TfidfTransformer()),
-                              ("clf",
-                               svm.SVC(
-                                   C=1.0,
-                                   kernel=kernel,
-                                   degree=3,
-                                   gamma='auto'))])
+                              ("clf", MultinomialNB())])
         return pipe_line
