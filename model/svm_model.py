@@ -6,7 +6,7 @@ from sklearn import svm
 
 
 class SVMModel(object):
-    def __init__(self,kernel):
+    def __init__(self, kernel):
         self.clf = self._init_pipeline(kernel)
 
     @staticmethod
@@ -19,9 +19,7 @@ class SVMModel(object):
                                    min_df=5, max_df=0.7, stop_words=sw)),
                               ("tfidf", TfidfTransformer()),
                               ("clf",
-                               svm.SVC(
-                                   C=1.0,
-                                   kernel=kernel,
-                                   degree=3,
-                                   gamma='auto'))])
+                               svm.LinearSVC(
+                                   C=1.0
+                                   ))])
         return pipe_line
