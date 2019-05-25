@@ -6,11 +6,11 @@ from sklearn import svm
 
 
 class SVMModel(object):
-    def __init__(self, kernel):
-        self.clf = self._init_pipeline(kernel)
+    def __init__(self):
+        self.clf = self._init_pipeline()
 
     @staticmethod
-    def _init_pipeline(kernel):
+    def _init_pipeline():
         f = open('vietnamese-stopwords-dash.txt', 'r')
         sw = f.read().splitlines()
         f.close()

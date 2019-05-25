@@ -18,5 +18,5 @@ class RandomForestModel(object):
                                    min_df=5, max_df=0.7, stop_words=sw)),
                               ("tfidf", TfidfTransformer()),
                               ("clf",
-                               RandomForestClassifier(n_estimators = 1000))])
+                               RandomForestClassifier(n_estimators = 100,n_jobs = 4))])
         return pipe_line
